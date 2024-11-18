@@ -1,28 +1,27 @@
 using UnityEngine;
 
-public class rotator : MonoBehaviour
+public class Rotator : MonoBehaviour
 {
-    public float speedX = 30f;
-    public float speedY = 30f;
-    public float speedZ = 30f;
-    
-    [Header("Rotation Axes")]
-    public bool rotateX = true;
-    public bool rotateY = true;
-    public bool rotateZ = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float rotationSpeed = 100f;
+    // אפשרויות בחירה לצירי הסיבוב
+    public bool rotateX = false;
+    public bool rotateY = true; // ברירת מחדל: ציר Y
+    public bool rotateZ = false;
 
     // Update is called once per frame
     void Update()
     {
-          transform.Rotate(
-             rotateX ? speedX * Time.deltaTime : 0f,
-            rotateY ? speedY * Time.deltaTime : 0f,
-            rotateZ ? speedZ * Time.deltaTime : 0f
+        // חישוב ציר הסיבוב המבוסס על הבחירות
+        Vector3 rotationAxis = new Vector3(
+            rotateX ? 1 : 0,
+            rotateY ? 1 : 0,
+            rotateZ ? 1 : 0
         );
+
+        // סיבוב סביב הצירים שנבחרו
+        if (rotationAxis != Vector3.zero) // כדי למנוע סיבוב מיותר אם כל הצירים מבוטלים
+        {
+            transform.Rotate(rotationAxis.normalized * rotationSpeed * Time.deltaTime, Space.Self);
+        }
     }
 }
