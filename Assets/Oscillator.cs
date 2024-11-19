@@ -13,15 +13,15 @@ public class Pendulum : MonoBehaviour
 
     [Header("Initial Conditions")]
     [Tooltip("Initial angle, in degrees")]
-    [Range(-90f,90f)]public float initialAngle = 90f; // הזווית ההתחלתית במעלות
+    [Range(-90f,90f)]public float initialAngle = 90f; // Initial angel in degrees
 
-    private float angle; // הזווית הנוכחית
+    private float angle; // Current angle
     private float angularVelocity; // מהירות זוויתית
     private float angularAcceleration; // תאוצה זוויתית
 
     void Start()
     {
-        // המרת הזווית ההתחלתית לרדיאנים
+        // Converting initial angle to Radians
         angle = initialAngle * Mathf.Deg2Rad;
     }
 
