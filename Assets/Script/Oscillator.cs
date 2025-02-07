@@ -10,6 +10,8 @@ public class Pendulum : MonoBehaviour
     [Range(0f, 1f)] public float damping = 0.98f; 
     [Tooltip("Mass of the pendulum, in kilograms")]
     public float mass = 10f; 
+    [Tooltip("A float that hold the minimum of the pendulum mass")]
+    public float minMass = 0.01f; 
 
     [Header("Initial Conditions")]
     [Tooltip("Initial angle, in degrees")]
@@ -34,7 +36,7 @@ public class Pendulum : MonoBehaviour
         angularVelocity += angularAcceleration * Time.deltaTime;
 
         // הפחתת מהירות בשל חיכוך, חיכוך פחות אגרסיבי
-        float effectiveDamping = Mathf.Pow(damping, Time.deltaTime / Mathf.Max(mass, 0.01f));
+        float effectiveDamping = Mathf.Pow(damping, Time.deltaTime / Mathf.Max(mass, minMass)); // כשהמסה נמוכה מידי היא תוחלף במסה שהיא יותר נורמאלית כדי לא להגיע לחילוק במספר קטן מידי כדי שהתוצאה לא תהיה אינסוף
         // angularVelocity *= Mathf.Pow(damping, Time.deltaTime);
          angularVelocity *= effectiveDamping;
 
