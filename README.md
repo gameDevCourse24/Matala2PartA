@@ -1,4 +1,4 @@
-## מטלה 2
+## מטלה 2- [רכיבים](https://gamedevrel2024shovhalyon.itch.io/component)
 במטלה זו אנו מציגים על המסך כל מיני רכיבים שבנינו כמו מטוטלת, פעימות וכו
 [קישור להצגת הרכיבים באיטצ'](https://gamedevrel2024shovhalyon.itch.io/component)  
 [כאן](https://github.com/gameDevCourse24/Matala2PartA/blob/main/Assets/Script/Hide.cs) ניתן לראות את הרכיב שמסתיר ומראה אובייקטים על ידי לחיצה על מקש מסויים שמגדירים דרך האינספקטור (H באופן דיפולטיבי)   
